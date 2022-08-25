@@ -14,7 +14,7 @@ class MTGCardExploreController: BaseViewController {
     private enum CellStyles {
         case checklist
         case textOnly
-        //        case image
+        case image
         
     }
     
@@ -34,6 +34,7 @@ class MTGCardExploreController: BaseViewController {
         tv.delegate = self
         tv.dataSource = self
         tv.separatorStyle = .none
+        tv.register(ImageCardCell.self)
         tv.register(TextOnlyCardCell.self)
         tv.register(CheckListCardCell.self)
         activityIndicator = LoadMoreActivityIndicator(scrollView: tv, spacingFromLastCell: 10, spacingFromLastCellWhenLoadMoreActionStart: 60)
@@ -91,7 +92,7 @@ class MTGCardExploreController: BaseViewController {
     }
     
     func tapOnImage() {
-        
+        style = .image
         DispatchQueue.main.async {
             self.imageState = .on
             self.checkListState = .off
@@ -104,6 +105,7 @@ class MTGCardExploreController: BaseViewController {
     func tapOnChecklist() {
         style = .checklist
         DispatchQueue.main.async {
+            self.imageState = .off
             self.checkListState = .on
             self.textOnlyState = .off
             self.setupMenu()
@@ -114,6 +116,7 @@ class MTGCardExploreController: BaseViewController {
     func tapOnTextOnly() {
         style = .textOnly
         DispatchQueue.main.async {
+            self.imageState = .off
             self.checkListState = .off
             self.textOnlyState = .on
             self.setupMenu()
@@ -132,6 +135,18 @@ class MTGCardExploreController: BaseViewController {
 }
 
 extension MTGCardExploreController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch style {
+        case .checklist:
+            return 50
+        case .image:
+            return 450
+        case .textOnly:
+            return UITableView.automaticDimension
+        }
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         activityIndicator.start {
             DispatchQueue.global(qos: .utility).async {
@@ -154,16 +169,16 @@ extension MTGCardExploreController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch style {
-            //        case .image:
-            //            let cell = tableView.reuse(ImageCardCell.self,for: indexPath)
-            //            cell.selectionStyle = .none
-            //            let card = viewModel.data[indexPath.row]
-            //            cell.cardVM = CardDetailViewModel(card: card)
-            //            cell.clicked = {
-            //                self.viewModel.data[indexPath.row].isFlipped.toggle()
-            //                cell.flipImage()
-            //            }
-            //            return cell
+        case .image:
+            let cell = tableView.reuse(ImageCardCell.self,for: indexPath)
+            cell.selectionStyle = .none
+            let card = viewModel.cards[indexPath.row]
+            cell.cardVM = ImageCardViewModel(card: card)
+            cell.clicked = {
+                self.viewModel.cards[indexPath.row].isFlipped.toggle()
+                cell.flipImage()
+            }
+            return cell
         case .checklist:
             let cell = tableView.reuse(CheckListCardCell.self,for: indexPath)
             cell.selectionStyle = .none
@@ -208,7 +223,7 @@ extension MTGCardExploreController: UISearchBarDelegate {
                 self.viewModel.fetch(query: text) {
                     self.tableView.reloadData()
                     self.stopAnimating()
-                    UIView.animate(views: self.tableView.visibleCells, animations: self.animations)
+//                    UIView.animate(views: self.tableView.visibleCells, animations: self.animations)
                 }
             }
         }
