@@ -34,6 +34,10 @@ class MTGCardExploreController: BaseViewController {
         tv.delegate = self
         tv.dataSource = self
         tv.separatorStyle = .none
+        tv.contentInsetAdjustmentBehavior = .automatic
+        extendedLayoutIncludesOpaqueBars = true
+        tv.bounces = true
+        tv.alwaysBounceVertical = true
         tv.register(ImageCardCell.self)
         tv.register(TextOnlyCardCell.self)
         tv.register(CheckListCardCell.self)
@@ -46,6 +50,9 @@ class MTGCardExploreController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.fetch {
+            self.tableView.reloadData()
+        }
         setupNavigationBar()
         setupMenu()
     }
@@ -54,7 +61,7 @@ class MTGCardExploreController: BaseViewController {
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.left.right.equalTo(view)
-            make.top.equalTo(view)
+            make.top.equalToSuperview()
             make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         view.bringSubviewToFront(viewIndicator)
@@ -65,11 +72,10 @@ class MTGCardExploreController: BaseViewController {
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.showsBookmarkButton = true
+        searchController.automaticallyShowsCancelButton = true
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
-        definesPresentationContext = true
-        
+
     }
     
     private func setupMenu() {
@@ -187,7 +193,7 @@ extension MTGCardExploreController: UITableViewDataSource {
             if indexPath.row % 2 == 0 {
                 cell.containerView.backgroundColor = .white
             } else {
-                cell.containerView.backgroundColor = .backgroundColor
+                cell.containerView.backgroundColor = .systemGroupedBackground
             }
             return cell
         case .textOnly:
@@ -214,7 +220,6 @@ extension MTGCardExploreController: UISearchBarDelegate {
         guard let text = searchBar.text else {
             return
         }
-        
         if !text.isEmpty {
             viewModel.cards.removeAll()
             tableView.reloadData()
@@ -223,15 +228,14 @@ extension MTGCardExploreController: UISearchBarDelegate {
                 self.viewModel.fetch(query: text) {
                     self.tableView.reloadData()
                     self.stopAnimating()
-//                    UIView.animate(views: self.tableView.visibleCells, animations: self.animations)
+                    UIView.animate(views: self.tableView.visibleCells, animations: self.animations)
                 }
             }
         }
+
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
-        viewModel.cards.removeAll()
-        tableView.reloadData()
     }
 }
