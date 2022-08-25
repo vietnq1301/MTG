@@ -50,9 +50,6 @@ class MTGCardExploreController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.fetch {
-            self.tableView.reloadData()
-        }
         setupNavigationBar()
         setupMenu()
     }
