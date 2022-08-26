@@ -33,7 +33,7 @@ extension UIView {
             maskedCorners.update(with: bottomRight)
         }
         
-        clipsToBounds       = true
+        clipsToBounds       = false
         layer.cornerRadius  = radius ?? 8.0
         layer.maskedCorners = maskedCorners
     }

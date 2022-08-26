@@ -11,8 +11,8 @@ class TextOnlyCardCell: UITableViewCell {
     
     var cardVM: TextOnlyCardViewModel? {
         didSet {
-            setupUI()
             setupData()
+            setupUI()
         }
     }
     
@@ -35,7 +35,7 @@ class TextOnlyCardCell: UITableViewCell {
     func setupUI() {
         contentView.addSubview(stackView)
         stackView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.edges.equalTo(contentView)
         }
         
         stackView.addBorders(to: [.top, .bottom], in: .black, width: 2)
@@ -59,7 +59,7 @@ class TextOnlyCardCell: UITableViewCell {
         let view = UIView()
         let title = UILabel(title: card.title, numberOfLines: 0, font: .systemFont(ofSize: 20, weight: .semibold))
         let mana = UILabel()
-        mana.attributedText = card.mana
+        mana.attributedText = card.mana.toSymbol()
 
         let type = UILabel(title: card.type)
 
@@ -75,7 +75,7 @@ class TextOnlyCardCell: UITableViewCell {
         divider1.isHidden = card.title.isEmpty ? true : false
         
         let divider2 = Divider()
-        divider2.isHidden = card.mana.string.isEmpty ? true : false
+        divider2.isHidden = card.mana.isEmpty ? true : false
 
         let divider3 = Divider()
         divider3.isHidden = card.type.isEmpty ? true : false
@@ -133,7 +133,6 @@ class TextOnlyCardCell: UITableViewCell {
             make.bottom.equalTo(view).offset(-10)
             make.height.equalTo(DIVIDER_HEIGHT)
         }
-        
         return view
     }
     

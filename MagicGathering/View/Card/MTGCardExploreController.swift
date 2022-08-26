@@ -34,10 +34,11 @@ class MTGCardExploreController: BaseViewController {
         tv.delegate = self
         tv.dataSource = self
         tv.separatorStyle = .none
-        tv.contentInsetAdjustmentBehavior = .automatic
-        extendedLayoutIncludesOpaqueBars = true
-        tv.bounces = true
-        tv.alwaysBounceVertical = true
+//        tv.estimatedRowHeight = 300
+//        tv.contentInsetAdjustmentBehavior = .automatic
+        //        extendedLayoutIncludesOpaqueBars = true
+        //        tv.bounces = true
+        //        tv.alwaysBounceVertical = true
         tv.register(ImageCardCell.self)
         tv.register(TextOnlyCardCell.self)
         tv.register(CheckListCardCell.self)
@@ -72,7 +73,7 @@ class MTGCardExploreController: BaseViewController {
         searchController.automaticallyShowsCancelButton = true
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
-
+        
     }
     
     private func setupMenu() {
@@ -150,19 +151,16 @@ extension MTGCardExploreController: UITableViewDelegate {
         }
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        activityIndicator.start {
-            DispatchQueue.global(qos: .utility).async {
-                for i in 0..<3 {
-                    print("!!!!!!!!! \(i)")
-                    sleep(1)
-                }
-                DispatchQueue.main.async { [weak self] in
-                    self?.activityIndicator.stop()
-                }
-            }
-        }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let card = viewModel.cards[indexPath.row]
+        let vc = MTGCardDetailController()
+        vc.viewModel = MTGCardDetailViewModel(card: card)
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
+    
+
 }
 
 extension MTGCardExploreController: UITableViewDataSource {
@@ -198,17 +196,18 @@ extension MTGCardExploreController: UITableViewDataSource {
             cell.selectionStyle = .none
             let card = viewModel.cards[indexPath.row]
             cell.cardVM = TextOnlyCardViewModel(card: card)
+
             return cell
+            
         }
     }
 }
 
 extension MTGCardExploreController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text else {
-            return
-        }
-        print(text)
+        //        guard let text = searchController.searchBar.text else {
+        //            return
+        //        }
     }
 }
 
@@ -229,7 +228,7 @@ extension MTGCardExploreController: UISearchBarDelegate {
                 }
             }
         }
-
+        
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

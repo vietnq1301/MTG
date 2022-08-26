@@ -1,35 +1,46 @@
 //
-//  TextOnlyCardViewModel.swift
-//  MagicGatheringUIKit
+//  MTGCardDetailViewModel.swift
+//  MagicGathering
 //
-//  Created by Nguyễn Việt on 14/08/2022.
+//  Created by Nguyễn Việt on 25/08/2022.
 //
 
 import Foundation
 
-struct BasicCard {
-    var title = ""
-    var mana: String
-    var type = ""
-    var oracleText = ""
-    var power =  ""
-    var toughness = ""
-    
-    init(title: String,mana: String, type: String, oracleText: String, power: String, toughness: String) {
-        self.title = title
-        self.mana = mana
-        self.type = type
-        self.oracleText = oracleText
-        self.power = power
-        self.toughness = toughness
-    }
-}
-
-class TextOnlyCardViewModel {
+class MTGCardDetailViewModel {
     let card: Card
     
     init(card: Card) {
         self.card = card
+    }
+    
+    var layout: String {
+        return card.layout
+    }
+    
+    var isFlip: Bool {
+        return card.isFlipped
+    }
+    
+    var cardFaces: [CardFace] {
+        return card.cardFaces
+    }
+    
+    var isMultiFaces: Bool {
+        return card.cardFaces.count >= 2 && card.cardFaces[0].imageUris.normal != "" && card.cardFaces[1].imageUris.normal != ""
+    }
+    
+    var imageURLs: [String] {
+        if isMultiFaces {
+            var urls = [String]()
+            let faces = card.cardFaces
+            faces.forEach { face in
+                urls.append(face.imageUris.normal)
+            }
+            return urls
+        } else {
+            return [card.imageUris.normal]
+        }
     }
     
     func generateData() -> [BasicCard] {
@@ -58,5 +69,8 @@ class TextOnlyCardViewModel {
         return arr
     }
     
+    var artist: String {
+        return card.artist
+    }
     
 }

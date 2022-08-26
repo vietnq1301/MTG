@@ -44,11 +44,12 @@ class ImageCardCell: UITableViewCell {
     }
     
     func flipImage() {
-        let face1 = cardVM!.cardFaces[0].imageUris.normal
-        let face2 = cardVM!.cardFaces[1].imageUris.normal
         guard let cardVM = cardVM else {
             return
         }
+        
+        let face1 = cardVM.cardFaces[0].imageUris.normal
+        let face2 = cardVM.cardFaces[1].imageUris.normal
 
         let url = cardVM.isFlip ? URL(string: face1) : URL(string: face2)
         if let url = url {

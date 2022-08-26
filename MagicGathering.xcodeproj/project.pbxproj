@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A802EE2228B86D78007E6511 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A802EE2128B86D78007E6511 /* UIButton+Ext.swift */; };
 		A831CCE128B74C8400F921D0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A831CCE028B74C8400F921D0 /* BaseViewController.swift */; };
 		A831CCE528B74D1100F921D0 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A831CCE428B74D1100F921D0 /* UITableView+Extension.swift */; };
 		A831CCE728B74D1700F921D0 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A831CCE628B74D1700F921D0 /* UIView+Ext.swift */; };
 		A831CCE928B74D1C00F921D0 /* UIScreen+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A831CCE828B74D1C00F921D0 /* UIScreen+Ext.swift */; };
 		A831CCEB28B74D2400F921D0 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A831CCEA28B74D2400F921D0 /* Color+Ext.swift */; };
 		A831CCED28B74D6F00F921D0 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A831CCEC28B74D6F00F921D0 /* String+Ext.swift */; };
-		A831CCF028B74DFC00F921D0 /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = A831CCEF28B74DFC00F921D0 /* NVActivityIndicatorView */; };
 		A831CCF228B74E1400F921D0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A831CCF128B74E1400F921D0 /* Constants.swift */; };
 		A831CCF828B74E7500F921D0 /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A831CCF728B74E7500F921D0 /* Divider.swift */; };
 		A831CCFA28B74E7E00F921D0 /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A831CCF928B74E7E00F921D0 /* VerticalStackView.swift */; };
@@ -24,14 +24,17 @@
 		A831CD0728B755B100F921D0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A831CD0628B755B100F921D0 /* Utils.swift */; };
 		A831CD0928B7569100F921D0 /* TextOnlyCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A831CD0828B7569100F921D0 /* TextOnlyCardCell.swift */; };
 		A831CD0B28B758EE00F921D0 /* LoadMoreIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A831CD0A28B758EE00F921D0 /* LoadMoreIndicator.swift */; };
-		A831CD0E28B7626500F921D0 /* ViewAnimator in Frameworks */ = {isa = PBXBuildFile; productRef = A831CD0D28B7626500F921D0 /* ViewAnimator */; };
 		A831CD1028B7720E00F921D0 /* ImageCardViewModell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A831CD0F28B7720E00F921D0 /* ImageCardViewModell.swift */; };
+		A831CD1228B7A49700F921D0 /* MTGCardDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A831CD1128B7A49700F921D0 /* MTGCardDetailController.swift */; };
+		A831CD1428B7A4A900F921D0 /* MTGCardDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A831CD1328B7A4A900F921D0 /* MTGCardDetailViewModel.swift */; };
+		A880772128B7C1B600CE5986 /* ViewAnimator in Frameworks */ = {isa = PBXBuildFile; productRef = A880772028B7C1B600CE5986 /* ViewAnimator */; };
+		A880772428B7C1BE00CE5986 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A880772328B7C1BE00CE5986 /* SnapKit */; };
+		A880772728B7C1C700CE5986 /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = A880772628B7C1C700CE5986 /* NVActivityIndicatorView */; };
+		A880772A28B7C1D100CE5986 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A880772928B7C1D100CE5986 /* Kingfisher */; };
 		A8F0BD4D28B7152F00FCCA32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F0BD4C28B7152F00FCCA32 /* AppDelegate.swift */; };
 		A8F0BD4F28B7152F00FCCA32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F0BD4E28B7152F00FCCA32 /* SceneDelegate.swift */; };
 		A8F0BD5628B7153100FCCA32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8F0BD5528B7153100FCCA32 /* Assets.xcassets */; };
 		A8F0BD5928B7153100FCCA32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8F0BD5728B7153100FCCA32 /* LaunchScreen.storyboard */; };
-		A8F0BD6228B7154000FCCA32 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A8F0BD6128B7154000FCCA32 /* SnapKit */; };
-		A8F0BD6528B7154D00FCCA32 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A8F0BD6428B7154D00FCCA32 /* Kingfisher */; };
 		A8F0BD6B28B7164C00FCCA32 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F0BD6A28B7164C00FCCA32 /* Network.swift */; };
 		A8F0BD7628B7183100FCCA32 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F0BD6E28B7183000FCCA32 /* Card.swift */; };
 		A8F0BD7728B7183100FCCA32 /* CardImagery.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F0BD6F28B7183000FCCA32 /* CardImagery.swift */; };
@@ -47,6 +50,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A802EE2128B86D78007E6511 /* UIButton+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		A831CCE028B74C8400F921D0 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A831CCE428B74D1100F921D0 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		A831CCE628B74D1700F921D0 /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
@@ -64,6 +68,8 @@
 		A831CD0828B7569100F921D0 /* TextOnlyCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextOnlyCardCell.swift; sourceTree = "<group>"; };
 		A831CD0A28B758EE00F921D0 /* LoadMoreIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadMoreIndicator.swift; sourceTree = "<group>"; };
 		A831CD0F28B7720E00F921D0 /* ImageCardViewModell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCardViewModell.swift; sourceTree = "<group>"; };
+		A831CD1128B7A49700F921D0 /* MTGCardDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGCardDetailController.swift; sourceTree = "<group>"; };
+		A831CD1328B7A4A900F921D0 /* MTGCardDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGCardDetailViewModel.swift; sourceTree = "<group>"; };
 		A8F0BD4928B7152F00FCCA32 /* MagicGathering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicGathering.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8F0BD4C28B7152F00FCCA32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8F0BD4E28B7152F00FCCA32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,10 +95,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8F0BD6528B7154D00FCCA32 /* Kingfisher in Frameworks */,
-				A8F0BD6228B7154000FCCA32 /* SnapKit in Frameworks */,
-				A831CD0E28B7626500F921D0 /* ViewAnimator in Frameworks */,
-				A831CCF028B74DFC00F921D0 /* NVActivityIndicatorView in Frameworks */,
+				A880772A28B7C1D100CE5986 /* Kingfisher in Frameworks */,
+				A880772728B7C1C700CE5986 /* NVActivityIndicatorView in Frameworks */,
+				A880772428B7C1BE00CE5986 /* SnapKit in Frameworks */,
+				A880772128B7C1B600CE5986 /* ViewAnimator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +115,7 @@
 				A831CCE428B74D1100F921D0 /* UITableView+Extension.swift */,
 				A831CCE628B74D1700F921D0 /* UIView+Ext.swift */,
 				A831CCE828B74D1C00F921D0 /* UIScreen+Ext.swift */,
+				A802EE2128B86D78007E6511 /* UIButton+Ext.swift */,
 				A831CCEA28B74D2400F921D0 /* Color+Ext.swift */,
 				A831CCEC28B74D6F00F921D0 /* String+Ext.swift */,
 				A831CCF128B74E1400F921D0 /* Constants.swift */,
@@ -215,6 +222,7 @@
 			children = (
 				A831CCFC28B7546400F921D0 /* Cell */,
 				A8F0BD8128B7258C00FCCA32 /* MTGCardExploreController.swift */,
+				A831CD1128B7A49700F921D0 /* MTGCardDetailController.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -224,17 +232,29 @@
 			children = (
 				A831CCFB28B7545E00F921D0 /* Cell */,
 				A8F0BD8428B7269F00FCCA32 /* MTGCardExploreViewModel.swift */,
+				A831CD1328B7A4A900F921D0 /* MTGCardDetailViewModel.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		A880772F28B7C46F00CE5986 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		A8F0BD4828B7152F00FCCA32 /* MagicGathering */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A8F0BD5D28B7153100FCCA32 /* Build configuration list for PBXNativeTarget "MagicGathering" */;
 			buildPhases = (
+				A880772F28B7C46F00CE5986 /* Headers */,
 				A8F0BD4528B7152F00FCCA32 /* Sources */,
 				A8F0BD4628B7152F00FCCA32 /* Frameworks */,
 				A8F0BD4728B7152F00FCCA32 /* Resources */,
@@ -245,10 +265,10 @@
 			);
 			name = MagicGathering;
 			packageProductDependencies = (
-				A8F0BD6128B7154000FCCA32 /* SnapKit */,
-				A8F0BD6428B7154D00FCCA32 /* Kingfisher */,
-				A831CCEF28B74DFC00F921D0 /* NVActivityIndicatorView */,
-				A831CD0D28B7626500F921D0 /* ViewAnimator */,
+				A880772028B7C1B600CE5986 /* ViewAnimator */,
+				A880772328B7C1BE00CE5986 /* SnapKit */,
+				A880772628B7C1C700CE5986 /* NVActivityIndicatorView */,
+				A880772928B7C1D100CE5986 /* Kingfisher */,
 			);
 			productName = MagicGathering;
 			productReference = A8F0BD4928B7152F00FCCA32 /* MagicGathering.app */;
@@ -279,10 +299,10 @@
 			);
 			mainGroup = A8F0BD4028B7152F00FCCA32;
 			packageReferences = (
-				A8F0BD6028B7154000FCCA32 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				A8F0BD6328B7154D00FCCA32 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				A831CCEE28B74DFC00F921D0 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
-				A831CD0C28B7626500F921D0 /* XCRemoteSwiftPackageReference "ViewAnimator" */,
+				A880771F28B7C1B600CE5986 /* XCRemoteSwiftPackageReference "ViewAnimator" */,
+				A880772228B7C1BE00CE5986 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				A880772528B7C1C700CE5986 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
+				A880772828B7C1D100CE5986 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = A8F0BD4A28B7152F00FCCA32 /* Products */;
 			projectDirPath = "";
@@ -313,6 +333,7 @@
 				A831CCE728B74D1700F921D0 /* UIView+Ext.swift in Sources */,
 				A831CD0428B7558A00F921D0 /* TextOnlyCardViewModel.swift in Sources */,
 				A831CCE928B74D1C00F921D0 /* UIScreen+Ext.swift in Sources */,
+				A802EE2228B86D78007E6511 /* UIButton+Ext.swift in Sources */,
 				A831CD0728B755B100F921D0 /* Utils.swift in Sources */,
 				A8F0BD7828B7183100FCCA32 /* CardLegality.swift in Sources */,
 				A831CD0928B7569100F921D0 /* TextOnlyCardCell.swift in Sources */,
@@ -323,10 +344,12 @@
 				A8F0BD7A28B7183100FCCA32 /* CardFace.swift in Sources */,
 				A831CCE128B74C8400F921D0 /* BaseViewController.swift in Sources */,
 				A8F0BD7B28B7183100FCCA32 /* CardPurchaseUri.swift in Sources */,
+				A831CD1428B7A4A900F921D0 /* MTGCardDetailViewModel.swift in Sources */,
 				A8F0BD7D28B7183100FCCA32 /* CardRelatedUri.swift in Sources */,
 				A8F0BD8528B7269F00FCCA32 /* MTGCardExploreViewModel.swift in Sources */,
 				A831CCF228B74E1400F921D0 /* Constants.swift in Sources */,
 				A8F0BD4F28B7152F00FCCA32 /* SceneDelegate.swift in Sources */,
+				A831CD1228B7A49700F921D0 /* MTGCardDetailController.swift in Sources */,
 				A8F0BD6B28B7164C00FCCA32 /* Network.swift in Sources */,
 				A8F0BD7628B7183100FCCA32 /* Card.swift in Sources */,
 				A831CD0B28B758EE00F921D0 /* LoadMoreIndicator.swift in Sources */,
@@ -550,23 +573,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A831CCEE28B74DFC00F921D0 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
+		A880771F28B7C1B600CE5986 /* XCRemoteSwiftPackageReference "ViewAnimator" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView";
+			repositoryURL = "https://github.com/marcosgriselli/ViewAnimator";
 			requirement = {
 				branch = master;
 				kind = branch;
 			};
 		};
-		A831CD0C28B7626500F921D0 /* XCRemoteSwiftPackageReference "ViewAnimator" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/marcosgriselli/ViewAnimator";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
-		A8F0BD6028B7154000FCCA32 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		A880772228B7C1BE00CE5986 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
 			requirement = {
@@ -574,7 +589,15 @@
 				kind = branch;
 			};
 		};
-		A8F0BD6328B7154D00FCCA32 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		A880772528B7C1C700CE5986 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		A880772828B7C1D100CE5986 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
 			requirement = {
@@ -585,24 +608,24 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A831CCEF28B74DFC00F921D0 /* NVActivityIndicatorView */ = {
+		A880772028B7C1B600CE5986 /* ViewAnimator */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A831CCEE28B74DFC00F921D0 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
-			productName = NVActivityIndicatorView;
-		};
-		A831CD0D28B7626500F921D0 /* ViewAnimator */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A831CD0C28B7626500F921D0 /* XCRemoteSwiftPackageReference "ViewAnimator" */;
+			package = A880771F28B7C1B600CE5986 /* XCRemoteSwiftPackageReference "ViewAnimator" */;
 			productName = ViewAnimator;
 		};
-		A8F0BD6128B7154000FCCA32 /* SnapKit */ = {
+		A880772328B7C1BE00CE5986 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A8F0BD6028B7154000FCCA32 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = A880772228B7C1BE00CE5986 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		A8F0BD6428B7154D00FCCA32 /* Kingfisher */ = {
+		A880772628B7C1C700CE5986 /* NVActivityIndicatorView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A8F0BD6328B7154D00FCCA32 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = A880772528B7C1C700CE5986 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			productName = NVActivityIndicatorView;
+		};
+		A880772928B7C1D100CE5986 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A880772828B7C1D100CE5986 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
