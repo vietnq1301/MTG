@@ -41,7 +41,7 @@ extension NSMutableAttributedString {
         let newAttributedString = NSMutableAttributedString(
             string: subString,
             attributes: [
-                NSAttributedString.Key.font: UIFont.italicSystemFont(ofSize: 16),
+                NSAttributedString.Key.font: UIFont.italicDescriptionFont,
             ]
         )
         
@@ -81,6 +81,22 @@ extension NSMutableAttributedString {
                 let nsRange = NSRange(range, in: self.string)
                 self.replaceCharacters(in: nsRange, with: replacement)
             }
+        }
+    }
+    
+    func bold(string: String) {
+        let subString = string
+        let newAttributedString = NSMutableAttributedString(
+            string: subString,
+            attributes: [
+                NSAttributedString.Key.font: UIFont.OpenSans(.bold, size: 16),
+            ]
+        )
+        
+        let range = self.string.range(of: string)
+        if let range = range {
+            let nsRange = NSRange(range, in: self.string)
+            self.replaceCharacters(in: nsRange, with: newAttributedString)
         }
     }
 }

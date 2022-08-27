@@ -23,7 +23,7 @@ class MTGCardDetailController: BaseViewController {
     let imgCard: UIImageView = {
         let img = UIImageView()
         img.contentMode = .scaleAspectFit
-        
+        img.backgroundColor = .clear
         return img
     }()
     
@@ -168,8 +168,9 @@ class MTGCardDetailController: BaseViewController {
         }
         
         infoView.addSubview(lbArtist)
+//        lbArtist.font = .descriptionFont
         lbArtist.snp.makeConstraints { make in
-            make.top.equalTo(infoStackView.snp.bottom).offset(SMALL_PADDING)
+            make.top.equalTo(infoStackView.snp.bottom).offset(0)
             make.left.equalTo(infoView).offset(18)
             make.right.equalTo(infoView).offset(-18)
             make.bottom.equalTo(infoView.snp.bottom).offset(-SMALL_PADDING)
@@ -212,8 +213,12 @@ class MTGCardDetailController: BaseViewController {
             infoStackView.addArrangedSubview(view)
         }
         
-        lbArtist.text = "Illustrated by " + viewModel.artist
-        
+        let artistText = "Illustrated by " + viewModel.artist
+        let attrText = NSMutableAttributedString(string: artistText)
+        attrText.bold(string: viewModel.artist)
+        lbArtist.font = .descriptionFont
+        lbArtist.attributedText = attrText
+
     }
     
     
@@ -256,15 +261,6 @@ class MTGCardDetailController: BaseViewController {
             UIView.animate(withDuration: 1) {
                 self.imgCard.transform = CGAffineTransform(rotationAngle: .pi)
             }
-//            var t = CGAffineTransform.identity
-//            t = t.rotated(by: .pi)
-//            t = t.scaledBy(x: 0.8, y: 0.8)
-//            UIView.animate(withDuration: 0.7) {
-//                self.imgCard.transform = t
-//            }
-//
-
-            
         }
 
     }
@@ -306,16 +302,16 @@ class MTGCardDetailController: BaseViewController {
     
     func generateView(card: BasicCard) -> UIView {
         let view = UIView()
-        let lbTitle = UILabel(title: card.title, numberOfLines: 0, font: .systemFont(ofSize: 20, weight: .semibold))
+        let lbTitle = UILabel(title: card.title, numberOfLines: 0, font: UIFont.titleFont)
         let lbMana = UILabel()
         lbMana.attributedText = card.mana.toSymbol()
         
-        let lbType = UILabel(title: card.type)
-        
+        let lbType = UILabel(title: card.type, font: .titleFont)
         let lbOracleText = UILabel()
+        lbOracleText.font = .descriptionFont
         lbOracleText.numberOfLines = 0
         lbOracleText.lineBreakMode = .byWordWrapping
-        lbOracleText.font = .systemFont(ofSize: 16, weight: .regular)
+        lbOracleText.font = .descriptionFont
         
         let attrOracleText = NSMutableAttributedString(string: card.oracleText)
         attrOracleText.addItalic()
@@ -325,13 +321,18 @@ class MTGCardDetailController: BaseViewController {
         let lbFlavor = UILabel()
         lbFlavor.numberOfLines = 0
         lbFlavor.lineBreakMode = .byWordWrapping
-//        let attrFlavor = NSMutableAttributedString(string: card.flavorText)
-//        attrFlavor.addItalic(of: card.flavorText)
         lbFlavor.text = card.flavorText
-        lbFlavor.font = .italicSystemFont(ofSize: 16)
+        lbFlavor.font = .italicDescriptionFont
         
-        
-        let lbPowerAndToughness = UILabel(title: "\(card.power)" + "/" +  "\(card.toughness)")
+        let lbPowerAndToughness = UILabel()
+
+        lbPowerAndToughness.font = .descriptionFont
+        if card.power.isEmpty && card.toughness.isEmpty {
+            lbPowerAndToughness.text = ""
+        } else {
+
+            lbPowerAndToughness.text = "\(card.power)" + "/" + "\(card.toughness)"
+        }
         
         let divider1 = Divider()
         divider1.isHidden = card.title.isEmpty ? true : false
@@ -346,9 +347,10 @@ class MTGCardDetailController: BaseViewController {
         divider4.isHidden = card.oracleText.isEmpty ? true : false
         
         let divider5 = Divider()
-        divider5.isHidden = (card.power.isEmpty && card.toughness.isEmpty) ? true : false
-        lbPowerAndToughness.isHidden = (card.power.isEmpty && card.toughness.isEmpty) ? true : false
+        divider5.isHidden = card.power.isEmpty && card.toughness.isEmpty ? true : false
+
         view.addSubviews([lbTitle, divider1, lbMana, divider2, lbType, divider3, lbOracleText, lbFlavor, divider4, lbPowerAndToughness, divider5])
+        
         
         lbTitle.snp.makeConstraints { make in
             make.top.equalTo(view).offset(10)
@@ -393,7 +395,7 @@ class MTGCardDetailController: BaseViewController {
         }
         
         lbFlavor.snp.makeConstraints { make in
-            make.top.equalTo(lbOracleText.snp.bottom).offset(5)
+            make.top.equalTo(lbOracleText.snp.bottom).offset(0)
             make.leading.equalTo(view).offset(10)
             make.trailing.equalTo(view).offset(-10)
         }
@@ -411,14 +413,16 @@ class MTGCardDetailController: BaseViewController {
         }
         
         divider5.snp.makeConstraints { make in
-            make.top.equalTo(lbPowerAndToughness.snp.bottom).offset(5)
+            if lbPowerAndToughness.isHidden {
+                make.top.equalTo(lbPowerAndToughness.snp.bottom).offset(0)
+            } else {
+                make.top.equalTo(lbPowerAndToughness.snp.bottom).offset(5)
+            }
             make.leading.trailing.equalTo(view)
             make.bottom.equalTo(view).offset(-10)
             make.height.equalTo(DIVIDER_HEIGHT)
         }
         return view
     }
-    
-    
     
 }

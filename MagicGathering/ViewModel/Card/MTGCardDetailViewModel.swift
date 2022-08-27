@@ -35,11 +35,11 @@ class MTGCardDetailViewModel {
             var urls = [String]()
             let faces = card.cardFaces
             faces.forEach { face in
-                urls.append(face.imageUris.normal)
+                urls.append(face.imageUris.borderCrop)
             }
             return urls
         } else {
-            return [card.imageUris.normal]
+            return [card.imageUris.borderCrop]
         }
     }
     
@@ -52,7 +52,7 @@ class MTGCardDetailViewModel {
                     let basicCard = BasicCard(title: card.name,mana: card.manaCost, type: card.typeLine, oracleText: card.oracleText, power: card.power, toughness: card.toughness, flavorText: card.flavorText)
                     arr.append(basicCard)
                 } else {
-                    let basicCard = BasicCard(title: card.name,mana: card.manaCost, type: card.typeLine, oracleText: card.oracleText + "\n", power:card.power, toughness: card.toughness, flavorText: card.flavorText)
+                    let basicCard = BasicCard(title: card.name,mana: card.manaCost, type: card.typeLine, oracleText: card.oracleText  , power:card.power, toughness: card.toughness, flavorText: card.flavorText)
                     arr.append(basicCard)
                 }
                
@@ -62,7 +62,7 @@ class MTGCardDetailViewModel {
                 let basicCard = BasicCard(title: card.name,mana: card.manaCost, type: card.typeLine, oracleText: card.oracleText, power: card.power, toughness: card.toughness, flavorText: card.flavorText)
                 arr.append(basicCard)
             } else {
-                let basicCard = BasicCard(title: card.name,mana: card.manaCost, type: card.typeLine, oracleText: card.oracleText + "\n", power:card.power, toughness: card.toughness, flavorText: card.flavorText)
+                let basicCard = BasicCard(title: card.name,mana: card.manaCost, type: card.typeLine, oracleText: card.oracleText  , power:card.power, toughness: card.toughness, flavorText: card.flavorText)
                 arr.append(basicCard)
             }
         }
