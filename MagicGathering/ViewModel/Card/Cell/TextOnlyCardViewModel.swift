@@ -14,14 +14,16 @@ struct BasicCard {
     var oracleText = ""
     var power =  ""
     var toughness = ""
+    var flavorText = ""
     
-    init(title: String,mana: String, type: String, oracleText: String, power: String, toughness: String) {
+    init(title: String,mana: String, type: String, oracleText: String, power: String, toughness: String, flavorText: String) {
         self.title = title
         self.mana = mana
         self.type = type
         self.oracleText = oracleText
         self.power = power
         self.toughness = toughness
+        self.flavorText = flavorText
     }
 }
 
@@ -38,20 +40,20 @@ class TextOnlyCardViewModel {
             let cards = card.cardFaces
             cards.forEach { card in
                 if card.oracleText.isEmpty {
-                    let basicCard = BasicCard(title: card.name,mana: card.manaCost, type: card.typeLine, oracleText: card.oracleText, power: card.power, toughness: card.toughness)
+                    let basicCard = BasicCard(title: card.name,mana: card.manaCost, type: card.typeLine, oracleText: card.oracleText, power: card.power, toughness: card.toughness, flavorText: card.flavorText)
                     arr.append(basicCard)
                 } else {
-                    let basicCard = BasicCard(title: card.name,mana: card.manaCost, type: card.typeLine, oracleText: card.oracleText + "\n", power:card.power, toughness: card.toughness)
+                    let basicCard = BasicCard(title: card.name,mana: card.manaCost, type: card.typeLine, oracleText: card.oracleText + "\n", power:card.power, toughness: card.toughness, flavorText: card.flavorText)
                     arr.append(basicCard)
                 }
                
             }
         } else {
             if card.oracleText.isEmpty {
-                let basicCard = BasicCard(title: card.name,mana: card.manaCost, type: card.typeLine, oracleText: card.oracleText, power: card.power, toughness: card.toughness)
+                let basicCard = BasicCard(title: card.name,mana: card.manaCost, type: card.typeLine, oracleText: card.oracleText, power: card.power, toughness: card.toughness, flavorText: card.flavorText)
                 arr.append(basicCard)
             } else {
-                let basicCard = BasicCard(title: card.name,mana: card.manaCost, type: card.typeLine, oracleText: card.oracleText + "\n", power:card.power, toughness: card.toughness)
+                let basicCard = BasicCard(title: card.name,mana: card.manaCost, type: card.typeLine, oracleText: card.oracleText + "\n", power:card.power, toughness: card.toughness, flavorText: card.flavorText)
                 arr.append(basicCard)
             }
         }

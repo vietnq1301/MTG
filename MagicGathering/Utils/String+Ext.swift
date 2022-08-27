@@ -34,3 +34,53 @@ extension String {
         return attributedString
     }
 }
+
+extension NSMutableAttributedString {
+    func addItalic(of string : String)  {
+        let subString = string
+        let newAttributedString = NSMutableAttributedString(
+            string: subString,
+            attributes: [
+                NSAttributedString.Key.font: UIFont.italicSystemFont(ofSize: 16),
+            ]
+        )
+        
+        let range = self.string.range(of: string)
+        if let range = range {
+            let nsRange = NSRange(range, in: self.string)
+            self.replaceCharacters(in: nsRange, with: newAttributedString)
+        }
+    }
+    
+    func addItalic() {
+        let regex = "\\((.*?)\\)"
+        let text = self.string
+        let italicTexts = matches(for: regex, in: text)
+        for italicText in italicTexts {
+            addItalic(of: italicText)
+        }
+    }
+    
+    func toSymbol() {
+        let regex = "\\{[^}]*\\}"
+        let mana = self.string
+        let symbols = matches(for: regex, in: mana)
+        for symbol in symbols {
+            var sym = symbol
+            sym = sym.replacingOccurrences(of: "{", with: "")
+            sym = sym.replacingOccurrences(of: "}", with: "")
+            sym = sym.replacingOccurrences(of: "/", with: "")
+            sym = sym.replacingOccurrences(of: "½", with: "HALF")
+            let uiimage  = UIImage(named: sym)
+            let attachment = NSTextAttachment()
+            attachment.image = uiimage
+            attachment.bounds = CGRect(x: 0, y: -3, width: 15, height: 15)
+            let replacement = NSAttributedString(attachment: attachment)
+            let range = self.string.range(of: symbol)
+            if let range = range {
+                let nsRange = NSRange(range, in: self.string)
+                self.replaceCharacters(in: nsRange, with: replacement)
+            }
+        }
+    }
+}

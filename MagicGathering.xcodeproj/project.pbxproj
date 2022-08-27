@@ -27,6 +27,7 @@
 		A831CD1028B7720E00F921D0 /* ImageCardViewModell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A831CD0F28B7720E00F921D0 /* ImageCardViewModell.swift */; };
 		A831CD1228B7A49700F921D0 /* MTGCardDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A831CD1128B7A49700F921D0 /* MTGCardDetailController.swift */; };
 		A831CD1428B7A4A900F921D0 /* MTGCardDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A831CD1328B7A4A900F921D0 /* MTGCardDetailViewModel.swift */; };
+		A86A12B328BA417E009C2D1D /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86A12B228BA417E009C2D1D /* Fonts.swift */; };
 		A880772128B7C1B600CE5986 /* ViewAnimator in Frameworks */ = {isa = PBXBuildFile; productRef = A880772028B7C1B600CE5986 /* ViewAnimator */; };
 		A880772428B7C1BE00CE5986 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A880772328B7C1BE00CE5986 /* SnapKit */; };
 		A880772728B7C1C700CE5986 /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = A880772628B7C1C700CE5986 /* NVActivityIndicatorView */; };
@@ -70,6 +71,19 @@
 		A831CD0F28B7720E00F921D0 /* ImageCardViewModell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCardViewModell.swift; sourceTree = "<group>"; };
 		A831CD1128B7A49700F921D0 /* MTGCardDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGCardDetailController.swift; sourceTree = "<group>"; };
 		A831CD1328B7A4A900F921D0 /* MTGCardDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGCardDetailViewModel.swift; sourceTree = "<group>"; };
+		A86A12A628BA3FD9009C2D1D /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		A86A12A728BA3FD9009C2D1D /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		A86A12A828BA3FD9009C2D1D /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		A86A12A928BA3FD9009C2D1D /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		A86A12AA28BA3FD9009C2D1D /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		A86A12AB28BA3FD9009C2D1D /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		A86A12AC28BA3FD9009C2D1D /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		A86A12AD28BA3FD9009C2D1D /* OpenSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-MediumItalic.ttf"; sourceTree = "<group>"; };
+		A86A12AE28BA3FDA009C2D1D /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		A86A12AF28BA3FDA009C2D1D /* OpenSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Medium.ttf"; sourceTree = "<group>"; };
+		A86A12B028BA3FDA009C2D1D /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		A86A12B128BA3FDA009C2D1D /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		A86A12B228BA417E009C2D1D /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		A8F0BD4928B7152F00FCCA32 /* MagicGathering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicGathering.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8F0BD4C28B7152F00FCCA32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8F0BD4E28B7152F00FCCA32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +134,7 @@
 				A831CCEC28B74D6F00F921D0 /* String+Ext.swift */,
 				A831CCF128B74E1400F921D0 /* Constants.swift */,
 				A831CD0628B755B100F921D0 /* Utils.swift */,
+				A86A12B228BA417E009C2D1D /* Fonts.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -144,6 +159,25 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		A86A12A528BA3FCD009C2D1D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A86A12A628BA3FD9009C2D1D /* OpenSans-Bold.ttf */,
+				A86A12B128BA3FDA009C2D1D /* OpenSans-BoldItalic.ttf */,
+				A86A12A728BA3FD9009C2D1D /* OpenSans-ExtraBold.ttf */,
+				A86A12AE28BA3FDA009C2D1D /* OpenSans-ExtraBoldItalic.ttf */,
+				A86A12AA28BA3FD9009C2D1D /* OpenSans-Italic.ttf */,
+				A86A12AB28BA3FD9009C2D1D /* OpenSans-Light.ttf */,
+				A86A12A828BA3FD9009C2D1D /* OpenSans-LightItalic.ttf */,
+				A86A12AF28BA3FDA009C2D1D /* OpenSans-Medium.ttf */,
+				A86A12AD28BA3FD9009C2D1D /* OpenSans-MediumItalic.ttf */,
+				A86A12B028BA3FDA009C2D1D /* OpenSans-Regular.ttf */,
+				A86A12A928BA3FD9009C2D1D /* OpenSans-SemiBold.ttf */,
+				A86A12AC28BA3FD9009C2D1D /* OpenSans-SemiBoldItalic.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		A8F0BD4028B7152F00FCCA32 = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +197,7 @@
 		A8F0BD4B28B7152F00FCCA32 /* MagicGathering */ = {
 			isa = PBXGroup;
 			children = (
+				A86A12A528BA3FCD009C2D1D /* Fonts */,
 				A831CCDF28B74C7600F921D0 /* Utils */,
 				A8F0BD6628B7159900FCCA32 /* Network */,
 				A8F0BD6728B715A300FCCA32 /* Model */,
@@ -351,6 +386,7 @@
 				A8F0BD4F28B7152F00FCCA32 /* SceneDelegate.swift in Sources */,
 				A831CD1228B7A49700F921D0 /* MTGCardDetailController.swift in Sources */,
 				A8F0BD6B28B7164C00FCCA32 /* Network.swift in Sources */,
+				A86A12B328BA417E009C2D1D /* Fonts.swift in Sources */,
 				A8F0BD7628B7183100FCCA32 /* Card.swift in Sources */,
 				A831CD0B28B758EE00F921D0 /* LoadMoreIndicator.swift in Sources */,
 				A831CD0028B7558100F921D0 /* ImageCardCell.swift in Sources */,

@@ -68,8 +68,10 @@ class TextOnlyCardCell: UITableViewCell {
         oracleText.lineBreakMode = .byWordWrapping
         oracleText.font = .systemFont(ofSize: 16, weight: .regular)
         
-        let attrOracleText = card.oracleText
-        oracleText.attributedText = attrOracleText.toSymbol()
+        let attrOracleText = NSMutableAttributedString(string: card.oracleText)
+        attrOracleText.addItalic()
+        attrOracleText.toSymbol()
+        oracleText.attributedText = attrOracleText
         
         let divider1 = Divider()
         divider1.isHidden = card.title.isEmpty ? true : false

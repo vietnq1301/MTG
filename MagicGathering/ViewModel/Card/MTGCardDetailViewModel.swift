@@ -49,20 +49,20 @@ class MTGCardDetailViewModel {
             let cards = card.cardFaces
             cards.forEach { card in
                 if card.oracleText.isEmpty {
-                    let basicCard = BasicCard(title: card.name,mana: card.manaCost, type: card.typeLine, oracleText: card.oracleText, power: card.power, toughness: card.toughness)
+                    let basicCard = BasicCard(title: card.name,mana: card.manaCost, type: card.typeLine, oracleText: card.oracleText, power: card.power, toughness: card.toughness, flavorText: card.flavorText)
                     arr.append(basicCard)
                 } else {
-                    let basicCard = BasicCard(title: card.name,mana: card.manaCost, type: card.typeLine, oracleText: card.oracleText + "\n", power:card.power, toughness: card.toughness)
+                    let basicCard = BasicCard(title: card.name,mana: card.manaCost, type: card.typeLine, oracleText: card.oracleText + "\n", power:card.power, toughness: card.toughness, flavorText: card.flavorText)
                     arr.append(basicCard)
                 }
                
             }
         } else {
             if card.oracleText.isEmpty {
-                let basicCard = BasicCard(title: card.name,mana: card.manaCost, type: card.typeLine, oracleText: card.oracleText, power: card.power, toughness: card.toughness)
+                let basicCard = BasicCard(title: card.name,mana: card.manaCost, type: card.typeLine, oracleText: card.oracleText, power: card.power, toughness: card.toughness, flavorText: card.flavorText)
                 arr.append(basicCard)
             } else {
-                let basicCard = BasicCard(title: card.name,mana: card.manaCost, type: card.typeLine, oracleText: card.oracleText + "\n", power:card.power, toughness: card.toughness)
+                let basicCard = BasicCard(title: card.name,mana: card.manaCost, type: card.typeLine, oracleText: card.oracleText + "\n", power:card.power, toughness: card.toughness, flavorText: card.flavorText)
                 arr.append(basicCard)
             }
         }

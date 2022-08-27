@@ -182,7 +182,7 @@ class MTGCardDetailController: BaseViewController {
             guard let urlFace1 = URL(string: viewModel.imageURLs[0]) else { return }
             guard let urlFace2 = URL(string: viewModel.imageURLs[1]) else { return }
             
-            let url = viewModel.isFlip ? urlFace1 : urlFace2
+            let url = isTapepd ? urlFace2 : urlFace1
             imgCard.kf.setImage(with: url)
         } else {
             guard let url = URL(string: viewModel.imageURLs[0]) else { return }
@@ -190,7 +190,6 @@ class MTGCardDetailController: BaseViewController {
         }
         
         let layout = viewModel.layout
-        print(layout)
         if layout == "split"  {
             stackBtn.addArrangedSubview([rotateBtn])
         } else if layout == "flip" {
@@ -274,22 +273,22 @@ class MTGCardDetailController: BaseViewController {
         transformBtn.pulsate()
         guard let face1 = URL(string: viewModel.cardFaces[0].imageUris.normal) else { return }
         guard let face2 = URL(string: viewModel.cardFaces[1].imageUris.normal) else { return }
+        isTapepd.toggle()
         let url = isTapepd ? face2 : face1
         UIView.transition(with: imgCard, duration: 0.7,options: .transitionFlipFromLeft) {
             self.imgCard.kf.setImage(with: url)
         }
-        isTapepd.toggle()
     }
     
     @objc func tapOnTurnOver() {
         turnOverBtn.pulsate()
         guard let face1 = URL(string: viewModel.cardFaces[0].imageUris.normal) else { return }
         guard let face2 = URL(string: viewModel.cardFaces[1].imageUris.normal) else { return }
+        isTapepd.toggle()
         let url = isTapepd ? face2 : face1
         UIView.transition(with: imgCard, duration: 0.7,options: .transitionFlipFromLeft) {
             self.imgCard.kf.setImage(with: url)
         }
-        isTapepd.toggle()
 
     }
     
@@ -297,11 +296,11 @@ class MTGCardDetailController: BaseViewController {
         viewBackBtn.pulsate()
         guard let face1 = URL(string: viewModel.cardFaces[0].imageUris.normal) else { return }
         guard let face2 = URL(string: viewModel.cardFaces[1].imageUris.normal) else { return }
+        isTapepd.toggle()
         let url = isTapepd ? face2 : face1
         UIView.transition(with: imgCard, duration: 0.7,options: .transitionFlipFromLeft) {
             self.imgCard.kf.setImage(with: url)
         }
-        isTapepd.toggle()
 
     }
     
@@ -318,11 +317,21 @@ class MTGCardDetailController: BaseViewController {
         lbOracleText.lineBreakMode = .byWordWrapping
         lbOracleText.font = .systemFont(ofSize: 16, weight: .regular)
         
-        let attrOracleText = card.oracleText
-        lbOracleText.attributedText = attrOracleText.toSymbol()
+        let attrOracleText = NSMutableAttributedString(string: card.oracleText)
+        attrOracleText.addItalic()
+        attrOracleText.toSymbol()
+        lbOracleText.attributedText = attrOracleText
+        
+        let lbFlavor = UILabel()
+        lbFlavor.numberOfLines = 0
+        lbFlavor.lineBreakMode = .byWordWrapping
+//        let attrFlavor = NSMutableAttributedString(string: card.flavorText)
+//        attrFlavor.addItalic(of: card.flavorText)
+        lbFlavor.text = card.flavorText
+        lbFlavor.font = .italicSystemFont(ofSize: 16)
+        
         
         let lbPowerAndToughness = UILabel(title: "\(card.power)" + "/" +  "\(card.toughness)")
-        
         
         let divider1 = Divider()
         divider1.isHidden = card.title.isEmpty ? true : false
@@ -339,7 +348,7 @@ class MTGCardDetailController: BaseViewController {
         let divider5 = Divider()
         divider5.isHidden = (card.power.isEmpty && card.toughness.isEmpty) ? true : false
         lbPowerAndToughness.isHidden = (card.power.isEmpty && card.toughness.isEmpty) ? true : false
-        view.addSubviews([lbTitle, divider1, lbMana, divider2, lbType, divider3, lbOracleText, divider4, lbPowerAndToughness, divider5])
+        view.addSubviews([lbTitle, divider1, lbMana, divider2, lbType, divider3, lbOracleText, lbFlavor, divider4, lbPowerAndToughness, divider5])
         
         lbTitle.snp.makeConstraints { make in
             make.top.equalTo(view).offset(10)
@@ -383,8 +392,14 @@ class MTGCardDetailController: BaseViewController {
             make.trailing.equalTo(view).offset(-10)
         }
         
-        divider4.snp.makeConstraints { make in
+        lbFlavor.snp.makeConstraints { make in
             make.top.equalTo(lbOracleText.snp.bottom).offset(5)
+            make.leading.equalTo(view).offset(10)
+            make.trailing.equalTo(view).offset(-10)
+        }
+        
+        divider4.snp.makeConstraints { make in
+            make.top.equalTo(lbFlavor.snp.bottom).offset(5)
             make.leading.trailing.equalTo(view)
             make.height.equalTo(DIVIDER_HEIGHT)
         }
